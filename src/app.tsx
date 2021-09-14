@@ -22,6 +22,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
+        111
         {this.props.children}
       </Provider>
     )
