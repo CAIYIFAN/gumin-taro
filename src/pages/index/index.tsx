@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React  from 'react'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
-
 import './index.less'
 
 type PageStateProps = {
@@ -15,49 +14,32 @@ type PageStateProps = {
   }
 }
 
-interface Index {
-  props: PageStateProps;
-}
-
-@inject('store')
-@observer
-class Index extends Component {
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props.store
+function Index (props: PageStateProps) {
+  const increment = () => {
+    const { counterStore } = props.store
     counterStore.increment()
   }
 
-  decrement = () => {
-    const { counterStore } = this.props.store
+  const decrement = () => {
+    const { counterStore } = props.store
     counterStore.decrement()
   }
 
-  incrementAsync = () => {
-    const { counterStore } = this.props.store
+  const incrementAsync = () => {
+    const { counterStore } = props.store
     counterStore.incrementAsync()
   }
 
-  render () {
-    const { counterStore: { counter } } = this.props.store
-    return (
-      <View className='index'>
+  const { counterStore: { counter } } = props.store
+
+  return (
+    <View className='index'>
         <Button onClick={this.increment}>+</Button>
         <Button onClick={this.decrement}>-</Button>
         <Button onClick={this.incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
       </View>
-    )
-  }
+  )
 }
 
-export default Index
+export default inject('store')(observer(Index))
