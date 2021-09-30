@@ -8,18 +8,33 @@ function Check(props: any) {
 
 
   const inputHandle = (value:any) => {
-    console.log(value.detail)
-    const { keyCode} = value.detail
-    if (keyCode && keyCode === 8) {
-      const tmp = data.concat()
-      tmp.pop();
-      setData(tmp)
-    }
     if (value.detail.value) {
       const tmp = data.concat(value.detail.value)
       setData(tmp)
     }
+    //  else {
+    //   const tmp = data.concat()
+    //   tmp.pop();
+    //   setData(tmp)
+    // }
   }
+
+  const keyHandle = function (e) {
+    console.log(e)
+    var keyNum=window.event ? e.keyCode :e.which;
+    if (keyNum === 46) {
+      const tmp = data.concat()
+      tmp.pop();
+      setData(tmp)
+    }
+  }
+  
+  useEffect(() => {
+    document.addEventListener('keydown', keyHandle)
+    return () => {
+      document.removeEventListener('keydown', keyHandle)
+    }
+  }, [])
 
   useEffect(() => {
     setFocusKey(data.length)
