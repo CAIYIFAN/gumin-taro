@@ -9,10 +9,10 @@ const store = {
   counterStore
 }
 
-function App () {
+function App (props) {
   return (
     <Provider store={store}>
-      {this.props.children}
+      {props.children}
     </Provider>
   )
 }

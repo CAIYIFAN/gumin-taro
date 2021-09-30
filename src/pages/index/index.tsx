@@ -34,9 +34,9 @@ function Index (props: PageStateProps) {
 
   return (
     <View className='index'>
-        <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
+        <Button onClick={increment}>+</Button>
+        <Button onClick={decrement}>-</Button>
+        <Button onClick={incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
       </View>
   )
