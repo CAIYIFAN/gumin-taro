@@ -1,6 +1,7 @@
 import React  from 'react'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
+import Check from '../../components/check'
 import './index.less'
 
 type PageStateProps = {
@@ -14,7 +15,7 @@ type PageStateProps = {
   }
 }
 
-function Index (props: PageStateProps) {
+function Index (props: PageStateProps, ref) {
   const increment = () => {
     const { counterStore } = props.store
     counterStore.increment()
@@ -38,8 +39,9 @@ function Index (props: PageStateProps) {
         <Button onClick={decrement}>-</Button>
         <Button onClick={incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
-      </View>
+        <Check />
+    </View>
   )
 }
 
-export default inject('store')(observer(Index))
+export default inject('store')(observer(React.forwardRef(Index)))
