@@ -39,7 +39,7 @@ function Index (props: PageStateProps, ref) {
         <Button onClick={decrement}>-</Button>
         <Button onClick={incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
-        <Check onFinished={() => {console.log('完成验证码')}}/>
+        <Check onFinished={(data) => {console.log(data)}}/>
     </View>
   )
 }

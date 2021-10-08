@@ -53,7 +53,7 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
       setFocusKey(data.length + 1)
     }
     if (data.length === count) {
-      onFinished && onFinished()
+      onFinished && onFinished(data)
     }
   }, [data.length])
 

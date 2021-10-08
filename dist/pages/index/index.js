@@ -101,8 +101,8 @@ function Index(props, ref) {
   }, "-"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__[/* Button */ "a"], {
     onClick: incrementAsync
   }, "Add Async"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__[/* Text */ "c"], null, counter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_check__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"], {
-    onFinished: function onFinished() {
-      console.log('完成验证码');
+    onFinished: function onFinished(data) {
+      console.log(data);
     }
   }));
 }
@@ -297,7 +297,7 @@ function Check(_ref) {
     }
 
     if (data.length === count) {
-      onFinished && onFinished();
+      onFinished && onFinished(data);
     }
   }, [data.length]); // console.log(data)
   // console.log('focusKey', focusKey, data)
