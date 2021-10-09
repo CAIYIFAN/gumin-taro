@@ -3,23 +3,25 @@ import { View, Input } from '@tarojs/components'
 import classNames from 'classnames'
 import './index.less'
 
-interface CheckProps {
+interface VerificationCodeProps {
   inputClassNames?: string; // input框样式
   onFinished?: Function; // 完成事件
+  onEmpty?: Function; // 为空时的事件
   count?: number; // 验证码数量
 }
 
-function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
-  const [data, setData] = useState([])
-  const [focusKey, setFocusKey] = useState(1)
+function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:VerificationCodeProps) {
+  const [data, setData] = useState([])  // 用以存储验证码
+  const [focusKey, setFocusKey] = useState(1) // 初始focus值
 
   const inputHandle = (value:any) => {
-    const tmp = data.concat()
+    const tmp = data.concat() // 不变数据流思想
     if (value.detail.value) {
-      if (data.length === count) return
+      if (data.length === count) return  // 当验证码输满则不存储
       const tmp = data.concat(value.detail.value)
       setData(tmp)
     } else {
+      // 删除逻辑
       tmp.pop();
       setData(tmp)
       const key = data.length === 1 ? data.length : data.length - 1
@@ -27,6 +29,7 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
     }
   }
 
+  // 输入框的默认属性
   const defaultProps = {
     maxlength: 1,
     onInput: inputHandle,
@@ -34,6 +37,7 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
     type: 'number'
   }
 
+  // 为每一个输入框制造属性
   const getProps = (num) => {
     const result: any = []
     for(let i = 0; i < num; i++) {
@@ -41,7 +45,7 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
         key: `validate${i}`,
         focus: focusKey ===  (i+1),
         value: data[i],
-        disabled: (i + 2 ) > num ? false : focusKey > (i+2),
+        disabled: (i + 2 ) > num ? false : focusKey > (i+2),  // 控制输入模式
         ...defaultProps,
       })
     }
@@ -49,16 +53,15 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
   }
 
   useEffect(() => {
-    if (data.length === focusKey) {
-      setFocusKey(data.length + 1)
-    }
-    if (data.length === count) {
-      onFinished && onFinished(data)
-    }
+    // 当验证码为空时触发的事件
+    data.length === 0 && onEmpty && onEmpty();
+    // 当data更新则更新focusKey
+    data.length === focusKey && setFocusKey(data.length + 1)
+    // 当验证码输满时触发onFinished事件
+    data.length === count &&  onFinished && onFinished(data)
   }, [data.length])
 
-  // console.log(data)
-  // console.log('focusKey', focusKey, data)
+
   return (
     <View className='check-wrapper'>
       {getProps(count).map((item) => (
@@ -70,4 +73,4 @@ function Check({inputClassNames, onFinished, count = 4}:CheckProps) {
   );
 }
 
-export default Check;
+export default VerificationCode;

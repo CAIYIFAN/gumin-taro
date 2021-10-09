@@ -1,7 +1,7 @@
 import React  from 'react'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
-import Check from '../../components/check'
+import VerificationCode from '../../components/VerificationCode'
 import './index.less'
 
 type PageStateProps = {
@@ -39,7 +39,7 @@ function Index (props: PageStateProps, ref) {
         <Button onClick={decrement}>-</Button>
         <Button onClick={incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
-        <Check onFinished={(data) => {console.log(data)}}/>
+        <VerificationCode onFinished={(data) => {console.log(data)}}/>
     </View>
   )
 }

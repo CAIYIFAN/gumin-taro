@@ -66,7 +66,7 @@ function _objectSpread2(target) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
 /* harmony import */ var mobx_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mobx-react */ "./node_modules/mobx-react/dist/mobxreact.esm.js");
-/* harmony import */ var _components_check__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/check */ "./src/components/check/index.tsx");
+/* harmony import */ var _components_VerificationCode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/VerificationCode */ "./src/components/VerificationCode/index.tsx");
 /* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.less */ "./src/pages/index/index.less");
 /* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -100,7 +100,7 @@ function Index(props, ref) {
     onClick: decrement
   }, "-"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__[/* Button */ "a"], {
     onClick: incrementAsync
-  }, "Add Async"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__[/* Text */ "c"], null, counter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_check__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"], {
+  }, "Add Async"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_1__[/* Text */ "c"], null, counter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_VerificationCode__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"], {
     onFinished: function onFinished(data) {
       console.log(data);
     }
@@ -200,10 +200,10 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 
-/***/ "./src/components/check/index.less":
-/*!*****************************************!*\
-  !*** ./src/components/check/index.less ***!
-  \*****************************************/
+/***/ "./src/components/VerificationCode/index.less":
+/*!****************************************************!*\
+  !*** ./src/components/VerificationCode/index.less ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -211,10 +211,10 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 
-/***/ "./src/components/check/index.tsx":
-/*!****************************************!*\
-  !*** ./src/components/check/index.tsx ***!
-  \****************************************/
+/***/ "./src/components/VerificationCode/index.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/VerificationCode/index.tsx ***!
+  \***************************************************/
 /*! exports provided: default */
 /*! exports used: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -227,7 +227,7 @@ module.exports = __webpack_amd_options__;
 /* harmony import */ var _tarojs_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tarojs/components */ "./node_modules/@tarojs/components/mini/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index.less */ "./src/components/check/index.less");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index.less */ "./src/components/VerificationCode/index.less");
 /* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_5__);
 
 
@@ -236,45 +236,50 @@ module.exports = __webpack_amd_options__;
 
 
 
-function Check(_ref) {
+function VerificationCode(_ref) {
   var inputClassNames = _ref.inputClassNames,
       onFinished = _ref.onFinished,
+      onEmpty = _ref.onEmpty,
       _ref$count = _ref.count,
       count = _ref$count === void 0 ? 4 : _ref$count;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       _useState2 = Object(_Users_caiyifan5_learn_gumin_taro_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(_useState, 2),
       data = _useState2[0],
-      setData = _useState2[1];
+      setData = _useState2[1]; // 用以存储验证码
+
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(1),
       _useState4 = Object(_Users_caiyifan5_learn_gumin_taro_node_modules_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])(_useState3, 2),
       focusKey = _useState4[0],
-      setFocusKey = _useState4[1];
+      setFocusKey = _useState4[1]; // 初始focus值
+
 
   var inputHandle = function inputHandle(value) {
-    var tmp = data.concat();
+    var tmp = data.concat(); // 不变数据流思想
 
     if (value.detail.value) {
-      if (data.length === count) return;
+      if (data.length === count) return; // 当验证码输满则不存储
 
       var _tmp = data.concat(value.detail.value);
 
       setData(_tmp);
     } else {
+      // 删除逻辑
       tmp.pop();
       setData(tmp);
       var key = data.length === 1 ? data.length : data.length - 1;
       setFocusKey(key);
     }
-  };
+  }; // 输入框的默认属性
+
 
   var defaultProps = {
     maxlength: 1,
     onInput: inputHandle,
     cursorSpacing: 10,
     type: 'number'
-  };
+  }; // 为每一个输入框制造属性
 
   var getProps = function getProps(num) {
     var result = [];
@@ -292,16 +297,13 @@ function Check(_ref) {
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    if (data.length === focusKey) {
-      setFocusKey(data.length + 1);
-    }
+    // 当验证码为空时触发的事件
+    data.length === 0 && onEmpty && onEmpty(); // 当data更新则更新focusKey
 
-    if (data.length === count) {
-      onFinished && onFinished(data);
-    }
-  }, [data.length]); // console.log(data)
-  // console.log('focusKey', focusKey, data)
+    data.length === focusKey && setFocusKey(data.length + 1); // 当验证码输满时触发onFinished事件
 
+    data.length === count && onFinished && onFinished(data);
+  }, [data.length]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__[/* View */ "d"], {
     className: "check-wrapper"
   }, getProps(count).map(function (item) {
@@ -312,7 +314,7 @@ function Check(_ref) {
   }));
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Check);
+/* harmony default export */ __webpack_exports__["a"] = (VerificationCode);
 
 /***/ }),
 
