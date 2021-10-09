@@ -276,6 +276,7 @@ function VerificationCode(_ref) {
 
   var cleanCode = function cleanCode() {
     setData([]);
+    setFocusKey(1);
   }; // 输入框的默认属性
 
 

@@ -32,6 +32,7 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
   // 清空验证码
   const cleanCode = () => {
     setData([])
+    setFocusKey(1)
   }
 
   // 输入框的默认属性
