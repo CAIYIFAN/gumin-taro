@@ -29,6 +29,11 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
     }
   }
 
+  // 清空验证码
+  const cleanCode = () => {
+    setData([])
+  }
+
   // 输入框的默认属性
   const defaultProps = {
     maxlength: 1,
@@ -58,7 +63,7 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
     // 当data更新则更新focusKey
     data.length === focusKey && setFocusKey(data.length + 1)
     // 当验证码输满时触发onFinished事件
-    data.length === count &&  onFinished && onFinished(data)
+    data.length === count &&  onFinished && onFinished(data, cleanCode)
   }, [data.length])
 
 

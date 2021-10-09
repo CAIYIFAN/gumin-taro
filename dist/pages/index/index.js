@@ -271,6 +271,11 @@ function VerificationCode(_ref) {
       var key = data.length === 1 ? data.length : data.length - 1;
       setFocusKey(key);
     }
+  }; // 清空验证码
+
+
+  var cleanCode = function cleanCode() {
+    setData([]);
   }; // 输入框的默认属性
 
 
@@ -302,7 +307,7 @@ function VerificationCode(_ref) {
 
     data.length === focusKey && setFocusKey(data.length + 1); // 当验证码输满时触发onFinished事件
 
-    data.length === count && onFinished && onFinished(data);
+    data.length === count && onFinished && onFinished(data, cleanCode);
   }, [data.length]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_tarojs_components__WEBPACK_IMPORTED_MODULE_3__[/* View */ "d"], {
     className: "check-wrapper"
