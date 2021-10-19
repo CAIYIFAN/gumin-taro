@@ -14,7 +14,7 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
   const [data, setData] = useState([])  // 用以存储验证码
   const [focusKey, setFocusKey] = useState(1) // 初始focus值
 
-  const inputHandle = (value:any) => {
+  const inputHandle = (optionKey: number) => (value:any) => {
     const tmp = data.concat() // 不变数据流思想
     if (value.detail.value) {
       if (data.length === count) return  // 当验证码输满则不存储
@@ -22,7 +22,7 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
       setData(tmp)
     } else {
       // 删除逻辑
-      tmp.pop();
+      tmp.splice(optionKey, 1)
       setData(tmp)
       const key = data.length === 1 ? data.length : data.length - 1
       setFocusKey(key)
@@ -38,7 +38,6 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
   // 输入框的默认属性
   const defaultProps = {
     maxlength: 1,
-    onInput: inputHandle,
     cursorSpacing: 10,
     type: 'number'
   }
@@ -51,7 +50,8 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
         key: `validate${i}`,
         focus: focusKey ===  (i+1),
         value: data[i],
-        disabled: (i + 2 ) > num ? false : focusKey > (i+2),  // 控制输入模式
+        onInput: inputHandle(i),
+        // disabled: (i + 2 ) > num ? false : focusKey > (i+2),  // 控制输入模式
         ...defaultProps,
       })
     }
