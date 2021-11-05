@@ -1,0 +1,121 @@
+<view class="page">
+  <view class="navigeterbar">
+  <view class="bar_back" bindtap="backHome"></view>
+  <view class="bar_title">
+    古茗茶饮点单
+  </view>
+  </view>
+ 
+  <view class="top">
+    <view class="left">
+      <view class="header">
+        <view class="icon">
+        <image src="/assets/icons/shop.png"></image>
+        </view>
+        <view class="shopname">
+        <text>{{shopname}}</text>
+        </view>
+        <view class="left_arrow"><image src="/assets/images/grey_arrow.png"></image></view>
+      </view>
+      <view class="footer">
+      <text>距离您{{distance}}</text>
+      </view>
+    </view>
+    <view class="right">
+      <view class="container">
+        自取
+      </view>
+    </view>
+  </view>
+
+  <view class="body">
+    <scroll-view class="scroll" scroll-y="{{true}}" >
+    <view class="left_bar" >
+      <view class="bar {{index == idx?'active':''}}" wx:for="{{left_bar}}" data-index="{{index}}" wx:key="key" bindtap="switchClassfun" >
+        <view class="pic">
+          <image src="{{item.pic}}"></image>
+        </view>
+        <view class="bar_name">
+          <text> {{item.title}}</text>
+        </view>
+      </view>
+    </view>
+    </scroll-view>
+    <view class="right_bar">
+      <swiper class="hd_swiper" autoplay circular="true">
+        <swiper-item wx:for="{{top}}" wx:key="id">
+          <image mode="scaleToFill"
+          data-id="{{item.id}}" src="{{item.pic}}"/>
+        </swiper-item>
+      </swiper>
+      <scroll-view 
+    class='scrollclass' 
+    scroll-y="true" 
+    scroll-with-animation="true" 
+    enable-back-to-top="true" 
+    scroll-into-view="{{toView}}" 
+    scroll-top="{{scrollTop}}" 
+    bindscroll="bindscrollfunc">
+
+    <block wx:for="{{dataList}}" wx:for-item="item" wx:key="key">
+
+      <view class='scroll-box position' id="position{{index}}" data-index="{{index}}" >
+
+        <view class='title'>{{item.title}}</view>
+
+          <block wx:for="{{item.products}}" wx:for-item="items" wx:key="key">
+
+            <view class='scroll-box-product-box'  >
+            
+              <image src='{{items.pic}}' class='product-img'></image>
+
+              <view class='product-info-box'>
+              
+                <view class='product-name'>{{items.title}}</view>
+
+                <view class='product-tag'>{{items.tag}}</view>
+
+                <view class="product-desc">{{items.desc}}</view>
+
+                <view class='product-price'>￥{{items.price}}起</view>
+
+                <view class="product-button" 
+                  bindtap="car" 
+                  data-price="{{items.price}}"
+                  data-pic="{{items.pic}}"
+                  data-desc="{{items.desc}}"
+                  data-title="{{items.title}}"
+                  data-num="{{1}}">选购</view>
+              
+              </view>
+
+            </view>
+
+          </block>
+
+      </view>
+
+    </block>
+
+      </scroll-view>
+    </view>
+  </view>
+  <block wx:if="{{isCar}}">
+  <panel orders="{{orders}}"  
+    id="panel" 
+    bind:add="addNum" 
+    bind:sub="subNum" 
+    bind:clearAll="clearAll"
+    bind:quit="quit"/>
+  <view class="car" bindtap="gotoDetail"> 
+    <view class="null">
+    <view class="shopBag">
+      <image src="/assets/images/shopBag.png"></image>
+    </view>
+    <view class="number">{{orderNumber}}</view>
+    <view class="total-price">￥{{totalPrice}}</view>
+    <view class="sure-button" bindtap="gotoPay">选好了</view>
+    </view>
+  </view>
+  </block>
+</view>
