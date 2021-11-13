@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "panel": "/components/panel/panel"
-  },
-  "navigationStyle": "custom"
-}
