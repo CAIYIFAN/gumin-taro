@@ -3,6 +3,8 @@ import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
 import VerificationCode from '../../components/VerificationCode'
 import './index.less'
+import A from 'src/components/a'
+import HocComponent from 'src/components/hoc-component'
 
 type PageStateProps = {
   store: {
@@ -40,6 +42,7 @@ function Index (props: PageStateProps, ref) {
         <Button onClick={incrementAsync}>Add Async</Button>
         <Text>{counter}</Text>
         <VerificationCode onFinished={(data) => {console.log(data)}}/>
+        {HocComponent(A)}
     </View>
   )
 }
