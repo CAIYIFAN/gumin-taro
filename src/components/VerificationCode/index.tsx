@@ -66,8 +66,9 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
     // 当验证码输满时触发onFinished事件
     data.length === count &&  onFinished && onFinished(data, cleanCode)
   }, [data.length])
-
-
+  
+  console.log(1111);
+  
   return (
     <View className='check-wrapper'>
       {getProps(count).map((item) => (
