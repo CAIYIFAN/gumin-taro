@@ -1,0 +1,232 @@
+.page {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+.page_v {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.navigeterbar {
+  height: 12vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.bar_title {
+  font-size: 36rpx;
+  width: 144rpx;
+  height: 4vh;
+  margin-top: 6vh;
+  color: #000;
+}
+.GM_tabs {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 6vh;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  /* border-bottom: 1rpx solid rgba(0, 0, 0, 0.2); */
+  background-color: #fff;
+}
+.GM_tabs__item {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 36rpx;
+  padding: 10rpx 0;
+}
+.GM_tabs__item_on {
+  border-bottom: 4rpx solid black;
+  color: black;
+}
+.GM_swiper_list {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.GM_swiper_list_swiper,
+.GM_swiper_list_item {
+  height: 100%;
+}
+scroll-view {
+  height: 100%;
+}
+.state_none {
+  margin-top: 5rpx;
+  height: 82vh;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+}
+.state_none image {
+  height: 300rpx;
+  width: 400rpx;
+  margin-bottom: 40rpx;
+}
+.state_none text {
+  font-size: 26rpx;
+}
+.state_none button {
+  border-radius: 50rpx;
+  letter-spacing: 5rpx;
+  font-size: 35rpx;
+  height: 80rpx;
+  width: 220rpx;
+  font-weight: 500;
+  margin-top: 120rpx;
+  color: #fff;
+  background: #333;
+}
+.bgc {
+  background-color: #f2f2f2;
+  min-height: 82vh;
+}
+.order {
+  height: 310rpx;
+  width: 100%;
+  /* border:1px solid rgba(0, 0, 0, 0.2); */
+  padding: 40rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.order_hd {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60rpx;
+  position: relative;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.order_hd .orderWay {
+  height: 34rpx;
+  width: 70rpx;
+  margin-left: 18rpx;
+  margin-top: 6rpx;
+  text-align: center;
+  font-size: 20rpx;
+  line-height: 34rpx;
+  border: 3rpx solid rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  /* flex: 1; */
+}
+.order_hd .fill {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.order_hd .state {
+  margin-right: 70rpx;
+}
+.order_hd image {
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 20rpx;
+}
+.order_hd .shop {
+  height: 60rpx;
+  /* flex: 1; */
+}
+.order_bd {
+  height: 100rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.order_bd .ellipsis {
+  height: 15rpx;
+  width: 60rpx;
+  margin-left: 20rpx;
+  margin-bottom: 40rpx;
+}
+.order_bd image {
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 10rpx;
+}
+.order_bd image:first-child {
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 0rpx;
+}
+.time {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 20rpx;
+}
+.bd_pic {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.sum {
+  width: 100rpx;
+  margin-right: 80rpx;
+  text-align: center;
+}
+.sum .price {
+  font-size: 36rpx;
+}
+.sum .num {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
+.order_ft {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.order_ft .again {
+  width: 200rpx;
+  height: 80rpx;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  text-align: center;
+  margin-right: 60rpx;
+  font-weight: 500;
+  color: #f8b754;
+  background-color: #fff;
+  border: 3rpx solid #f8b754;
+  border-radius: 5rpx;
+}
+

@@ -74,9 +74,7 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
       onFinished && onFinished(data, cleanCode)
     }
   }, [data.length])
-  
-  console.log(1111);
-  
+    
   return (
     <View className='check-wrapper'>
       {getProps(count).map((item) => (
