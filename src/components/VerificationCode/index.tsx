@@ -5,7 +5,9 @@ import './index.less'
 
 interface VerificationCodeProps {
   inputClassNames?: string; // input框样式
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onFinished?: Function; // 完成事件
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onEmpty?: Function; // 为空时的事件
   count?: number; // 验证码数量
 }
@@ -60,11 +62,17 @@ function VerificationCode({inputClassNames, onFinished, onEmpty, count = 4}:Veri
 
   useEffect(() => {
     // 当验证码为空时触发的事件
-    data.length === 0 && onEmpty && onEmpty();
+    if (data.length === 0) {
+      onEmpty && onEmpty();
+    }
     // 当data更新则更新focusKey
-    data.length === focusKey && setFocusKey(data.length + 1)
+    if (data.length === focusKey) {
+      setFocusKey(data.length + 1)
+    }
     // 当验证码输满时触发onFinished事件
-    data.length === count &&  onFinished && onFinished(data, cleanCode)
+    if (data.length === count) {
+      onFinished && onFinished(data, cleanCode)
+    }
   }, [data.length])
   
   console.log(1111);
