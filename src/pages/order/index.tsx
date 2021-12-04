@@ -28,6 +28,22 @@ function Order() {
 
   const orderAgain = () => {console.log('orderAgain')}
 
+  const Item = (item): ReactNode => {
+    return 
+      item.avatarUrl.length <= 3 ? (
+        item.map((item, index) => (
+          <Image className="orderPic" key={index}  src={item.avatarUrl.url} />
+        ))
+      ) : (
+        item.map((item, index) => (
+          <View key={index}>
+            <Image className="orderPic" key={index}  src={item.avatarUrl.sub} />
+            <Image src="https://static.gumingnc.com/guming-wechat/prod/files/images/ellipsis.png" className="ellipsis"></Image>
+          </View>
+        ))
+      )
+  }
+
   return (
     <View className="page page_v">
       <View className="navigeterbar">
@@ -83,20 +99,7 @@ function Order() {
                             <View className="time">{item.time}</View>
                             <View className="order_bd" onClick={gotoDetail(item.id)}>
                             <View className="bd_pic">
-                              {
-                                item.avatarUrl.length <= 3 ? (
-                                  item.map((item, index) => (
-                                    <Image className="orderPic" key={index}  src={item.avatarUrl.url} />
-                                  ))
-                                ) : (
-                                  item.map((item, index) => (
-                                    <View key={index}>
-                                      <Image className="orderPic" key={index}  src={item.avatarUrl.sub} />
-                                      <Image src="https://static.gumingnc.com/guming-wechat/prod/files/images/ellipsis.png" className="ellipsis"></Image>
-                                    </View>
-                                  ))
-                                )
-                              }
+                              {Item(item)}
                             </View>
                             <View className="sum">
                               <View className="price">￥{item.sumPrice}</View>

@@ -470,4 +470,4 @@ const dataList =[
       ]
     }
     ]//所有奶茶数据
-    exports.dataList = dataList;
+    export default dataList;

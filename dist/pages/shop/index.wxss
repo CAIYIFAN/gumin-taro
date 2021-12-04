@@ -1,1 +1,385 @@
-/* pages/shop/index.wxss */
+.navigeterbar {
+  height: 10vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.bar_title {
+  font-size: 36rpx;
+  width: 216rpx;
+  height: 4vh;
+  margin-top: 6vh;
+  color: #000;
+}
+.bar_back {
+  position: absolute;
+  left: 40rpx;
+  top: 7vh;
+  height: 20rpx;
+  width: 20rpx;
+  border-top: 2rpx solid #000;
+  border-left: 2rpx solid #000;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.top {
+  border-bottom: 1rpx solid #bebcbc;
+  width: 100%;
+  height: 8.5vh;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.icon image {
+  width: 3vh;
+  height: 3vh;
+  margin: 10rpx;
+}
+.shopname text {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.left {
+  width: 80%;
+}
+.shopname {
+  width: 50%;
+  height: 100%;
+  padding-top: 6rpx;
+  position: relative;
+}
+.left_arrow image {
+  width: 4vh;
+  height: 4vh;
+  margin-left: -20rpx;
+}
+.footer text {
+  color: #969696;
+}
+.footer {
+  margin-left: 14rpx;
+  font-size: 28rpx;
+}
+.container {
+  width: 90%;
+  height: 50%;
+  border: 2rpx solid #adadad;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 45rpx;
+  color: #adadad;
+}
+.right {
+  width: 20%;
+}
+.body {
+  width: 100%;
+  /* height: 90vh;0 */
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 81.5vh;
+}
+.scroll {
+  height: 81.5vh;
+  width: 20vw;
+}
+.left_bar {
+  /* height: 100%; */
+  width: 20vw;
+  background-color: #f3f6f6;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.active {
+  width: 100%;
+  height: 150rpx;
+  position: relative;
+  border-left: 10rpx solid #f4b859;
+  /* margin-left: 10rpx solid #f4b859; */
+  background-color: #fff;
+  padding-top: 30rpx;
+  color: #f4b859;
+}
+.active::before {
+  content: "";
+  color: #f4b859;
+  border-left: 10rpx solid #f4b859;
+  height: 100rpx;
+  position: absolute;
+  top: 30rpx;
+  left: -10rpx;
+}
+.bar {
+  /* background-color: #fff; */
+  width: 100%;
+  height: 120rpx;
+  position: relative;
+  border-left: 10rpx solid #ffffff;
+  padding-top: 30rpx;
+  color: #b3b6b6b6;
+}
+.pic {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50%;
+}
+.pic image {
+  height: 3vh;
+  width: 3vh;
+}
+.bar_name {
+  /* height: 20%; */
+  width: 100%;
+  /* left: 25rpx; */
+  /* position: absolute; */
+  /* bottom: 22rpx; */
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10rpx;
+}
+.bar_name text {
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.hd_swiper {
+  width: 75vw;
+  margin: 20rpx;
+  height: 18vh;
+}
+.right_bar {
+  width: 80vw;
+}
+.hd_swiper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.scrollclass {
+  width: 100%;
+  height: 63.5vh;
+  overflow: hidden;
+}
+.scroll-box .title {
+  padding: 26rpx 20rpx;
+  font-size: 24rpx;
+  text-align: left;
+  letter-spacing: 3rpx;
+}
+.scroll-box-product-box {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 94%;
+  height: 260rpx;
+  margin: auto;
+  padding: 20rpx 0;
+  /* border-bottom: 1rpx solid #E2E2E2; */
+}
+.scroll-box-product-box .product-img {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 10rpx;
+}
+.scroll-box-product-box .product-info-box {
+  width: 70%;
+  position: relative;
+}
+.scroll-box-product-box .product-info-box .product-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 30rpx;
+  letter-spacing: 3rpx;
+  width: 100%;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.scroll-box-product-box .product-info-box .product-tag {
+  background-color: #f9f0e2;
+  font-size: 24rpx;
+  width: 20%;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #c89e5f;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15rpx;
+  margin-bottom: 10rpx;
+  letter-spacing: 3rpx;
+}
+.scroll-box-product-box .product-info-box .product-desc {
+  font-size: 20rpx;
+  color: #8d8d8d;
+  letter-spacing: 2rpx;
+}
+.scroll-box-product-box .product-price {
+  font-weight: 600;
+  color: #333;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 40rpx;
+}
+.scroll-box-product-box .product-info-box .product-button {
+  background: #FFB75E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right #f9d087, #fbc270);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#f9d087), to(#fbc270));
+  background: -webkit-linear-gradient(left, #f9d087, #fbc270);
+  background: -o-linear-gradient(left, #f9d087, #fbc270);
+  background: linear-gradient(to right, #f9d087, #fbc270);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100rpx;
+  height: 40rpx;
+  position: absolute;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 24rpx;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 0;
+  bottom: 40rpx;
+}
+.car {
+  width: 90vw;
+  height: 8vh;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  bottom: 35rpx;
+  right: 5%;
+  left: 5%;
+  border-radius: 80rpx;
+  -webkit-box-shadow: 0rpx 0rpx 20rpx rgba(0, 0, 0, 0.3);
+          box-shadow: 0rpx 0rpx 20rpx rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.shopBag image {
+  width: 6vh;
+  height: 6vh;
+}
+.shopBag {
+  margin-left: 50rpx;
+  margin-top: 15rpx;
+}
+.null {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.number {
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #efbe5a;
+  position: absolute;
+  top: 0;
+  left: 120rpx;
+  border-radius: 180rpx;
+  border: 2rpx solid #fff;
+}
+.number {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24rpx;
+  color: #fff;
+}
+.total-price {
+  position: absolute;
+  right: 250rpx;
+  top: 3vh;
+  font-size: 46rpx;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.sure-button {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background: #FFB75E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right #f9d087, #fbc270);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#f9d087), to(#fbc270));
+  background: -webkit-linear-gradient(left, #f9d087, #fbc270);
+  background: -o-linear-gradient(left, #f9d087, #fbc270);
+  background: linear-gradient(to right, #f9d087, #fbc270);
+  right: 0;
+  top: -15rpx;
+  border-radius: 0 80rpx 80rpx 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 40rpx;
+  color: #fff;
+}
+
