@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, { Component, useMemo }  from 'react'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
 // import VerificationCode from '../../components/VerificationCode'
 import './index.less'
